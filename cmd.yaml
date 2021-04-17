@@ -1,0 +1,14 @@
+parent_cmd:
+  - parent_name: "create"
+    child_cmd:
+      - child_name: "a"
+        def: "create-a"
+        usage: "is create-a"
+      - child_name: "b"
+        def: "create-b"
+        usage: "is create-b"
+  - parent_name: "update"
+    child_cmd:
+      - child_name: "c"
+        def: "update-a"
+        usage: "is update-c"

@@ -1,3 +1,5 @@
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=wangxudong123)](https://github.com/anuraghazra/github-readme-stats)
+
 # easy-command
 
 # 超级简单的获取子命令参数工具

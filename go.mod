@@ -1,4 +1,4 @@
-module cmd
+module github.com/wangxudong123/easy-command
 
 go 1.15
 

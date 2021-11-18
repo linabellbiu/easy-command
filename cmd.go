@@ -32,21 +32,23 @@ var cli cliMap = make(map[string]CommandInterFace)
 
 var cmdYaml = &commandYaml{}
 
-func parse() {
-	yamlFile, err := ioutil.ReadFile("./cmd.yaml")
-	if err != nil {
-		log.Fatalln(err)
+func parse(yamlContent []byte) {
+	var err error
+	if yamlContent == nil {
+		yamlContent, err = ioutil.ReadFile("./cmd.yaml")
+		if err != nil {
+			log.Fatalln(err)
+		}
 	}
-
-	if err = yaml.Unmarshal(yamlFile, &cmdYaml); err != nil {
+	if err := yaml.Unmarshal(yamlContent, &cmdYaml); err != nil {
 		log.Fatalln(err.Error())
 	}
 }
 
 //加载命令
 //只提供这个加载入口
-func LoadCmd(m map[string]func(FlagValueMap)) {
-	parse()
+func LoadCmd(m map[string]func(FlagValueMap), yamlContent []byte) {
+	parse(yamlContent)
 
 	registerCmd(newParentCmd(newChildCmd()))
 
